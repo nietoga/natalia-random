@@ -39,7 +39,7 @@ function CartaParaNatalia() {
         </div>
         <div className="prueba-copia">
           <h2 id="titulo-prueba">Estos enlaces también los hice yo.</h2>
-          <div className="ruta-enlace"><span>Te envié</span><strong>slash.apps.nietoga.com/natalia</strong></div>
+          <div className="ruta-enlace"><span>Te envié</span><strong>slash.apps.nietoga.com/s/natalia-mira</strong></div>
           <div className="ruta-enlace"><span>Estás en</span><strong>natalia.apps.nietoga.com</strong></div>
         </div>
         <Seguir href="#postdata" />
