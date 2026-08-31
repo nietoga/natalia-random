@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 export const Route = createFileRoute('/')({ component: CartaParaNatalia })
 
@@ -26,8 +26,8 @@ function CartaParaNatalia() {
           <h2>Primero monté Proxmox. Después, Coolify.</h2>
           <p>Proxmox aloja las máquinas virtuales; Coolify despliega y mantiene los servicios. Luego dejé funcionando DDNS, enlaces cortos, citas y un chatbot.</p>
         </div>
-        <Captura movil="/proxmox-working-slim.webp" completa="/proxmox-working-full.webp" titulo="Proxmox funcionando" clase="captura-uno" />
-        <Captura movil="/coolify-working-slim.webp" completa="/coolify-working-full.webp" titulo="Servicios desplegados en Coolify" clase="captura-dos" />
+        <Captura movil="/proxmox-working-slim.webp" titulo="Proxmox funcionando" clase="captura-uno" />
+        <Captura movil="/coolify-working-slim.webp" titulo="Servicios desplegados en Coolify" clase="captura-dos" />
         <Seguir href="#prueba-dominio" />
       </section>
 
@@ -81,34 +81,16 @@ function Seguir({ href }: { href: string }) {
   return <a className="seguir" href={href}><span>Seguir</span><i aria-hidden="true">↓</i></a>
 }
 
-function Captura({ movil, completa, titulo, clase }: { movil: string; completa: string; titulo: string; clase: string }) {
+function Captura({ movil, titulo, clase }: { movil: string; titulo: string; clase: string }) {
   const [lista, setLista] = useState(false)
   const [error, setError] = useState(false)
-  const [ampliada, setAmpliada] = useState(false)
-
-  useEffect(() => {
-    if (!ampliada) return
-    const cerrarConEscape = (evento: KeyboardEvent) => {
-      if (evento.key === 'Escape') setAmpliada(false)
-    }
-    window.addEventListener('keydown', cerrarConEscape)
-    return () => window.removeEventListener('keydown', cerrarConEscape)
-  }, [ampliada])
 
   return (
     <figure className={`captura ${clase} ${lista ? 'con-imagen' : ''}`} data-revelar>
-      <button className="captura-enlace" type="button" onClick={() => setAmpliada(true)} aria-label={`Ampliar captura: ${titulo}`}>
-        <picture>
-          <img src={movil} alt="" loading="eager" decoding="async" onLoad={() => setLista(true)} onError={() => setError(true)} />
-        </picture>
-      </button>
-      <figcaption><strong>{titulo}</strong><span>{error ? 'No se pudo cargar' : 'toca para ampliar ↗'}</span></figcaption>
-      {ampliada && (
-        <div className="captura-ampliada" role="dialog" aria-modal="true" aria-label={titulo} onClick={() => setAmpliada(false)}>
-          <button className="captura-cerrar" type="button" onClick={() => setAmpliada(false)} aria-label="Cerrar ampliación">×</button>
-          <img src={completa} alt={titulo} onClick={(evento) => evento.stopPropagation()} />
-        </div>
-      )}
+      <picture>
+        <img src={movil} alt={titulo} loading="eager" decoding="async" onLoad={() => setLista(true)} onError={() => setError(true)} />
+      </picture>
+      <figcaption><strong>{titulo}</strong><span>{error ? 'No se pudo cargar' : 'captura del servidor'}</span></figcaption>
     </figure>
   )
 }
