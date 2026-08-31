@@ -101,6 +101,7 @@ footer{display:flex;flex-direction:column;gap:14px;padding:24px 20px max(24px,en
 body{scroll-snap-type:y mandatory}.portada,.evidencias,.prueba-dominio,.postdata,.contacto{min-height:100svh}.portada{min-height:100svh}.hero{min-height:calc(100svh - 64px)}.contacto{display:flex;flex-direction:column;justify-content:center}
 @media(min-width:760px){.contacto{display:grid}.hero{min-height:calc(100svh - 64px)}}
 @media(prefers-reduced-motion:reduce){html,body{scroll-behavior:auto;scroll-snap-type:none}}
+.captura img{opacity:1}
 
 /* En pantallas grandes, conserva la experiencia de carta móvil. */
 @media(min-width:760px){
