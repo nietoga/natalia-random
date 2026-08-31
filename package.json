@@ -10,7 +10,7 @@
     "dev:prod": "vite dev --port 3000 --mode dev-prod",
     "generate-routes": "tsr generate",
     "build": "vite build",
-    "preview": "vite preview --host 0.0.0.0 --port 4173",
+    "preview": "vite preview --host natalia.apps.nietoga.com --port 4173",
     "test": "vitest run"
   },
   "dependencies": {
