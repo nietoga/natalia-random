@@ -6,12 +6,13 @@ export const Route = createRootRoute({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
-      { title: 'Natalia, esta es la explicación oficial' },
+      { title: 'Mi sábado para Natalia' },
       { name: 'description', content: 'La bitácora del sábado en que Agustin montó su servidor.' },
       { name: 'theme-color', content: '#f3eee5' },
     ],
     links: [
       { rel: 'stylesheet', href: appCss },
+      { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
       { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap' },
