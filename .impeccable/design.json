@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-31T01:00:00-05:00",
+  "title": "Design System: Natalia, en esto invertí mi sábado",
+  "extensions": {
+    "colorMeta": {
+      "warm-paper": { "role": "neutral", "displayName": "Papel cálido", "canonical": "#f3eee5" },
+      "near-black-ink": { "role": "primary", "displayName": "Tinta casi negra", "canonical": "#171611" },
+      "love-red": { "role": "secondary", "displayName": "Rojo afectivo", "canonical": "#e44832" },
+      "deployment-yellow": { "role": "secondary", "displayName": "Amarillo de acción", "canonical": "#f2bf43" },
+      "ownership-green": { "role": "tertiary", "displayName": "Verde de propiedad", "canonical": "#26745d" },
+      "image-loading": { "role": "neutral", "displayName": "Fondo de carga de captura", "canonical": "#dfd8cc" },
+      "fish-photo-loading": { "role": "neutral", "displayName": "Fondo de carga de foto del pez", "canonical": "#2a2a25" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Portada", "purpose": "Titular inicial compacto y dominante." },
+      "headline": { "displayName": "Titular de capítulo", "purpose": "Evidencia, dominio, posdata y contacto." },
+      "body": { "displayName": "Voz humana", "purpose": "Explicación breve y carta personal." },
+      "technical-label": { "displayName": "Prueba técnica", "purpose": "Estado, tecnologías, capturas, URLs y teléfono." }
+    },
+    "shadows": [
+      { "name": "screenshot-proof", "value": "0 22px 50px rgba(23,22,17,.14)", "purpose": "Eleva únicamente las capturas como pruebas físicas." },
+      { "name": "fish-photo", "value": "0 22px 50px rgba(0,0,0,.22)", "purpose": "Separa la foto real de su fondo oscuro." },
+      { "name": "online-status", "value": "0 0 0 5px rgba(38,116,93,.12)", "purpose": "Halo del punto de sábado completado." }
+    ],
+    "motion": [
+      { "name": "fish-bubbles", "value": "5s ease-in-out infinite", "purpose": "Mueve las tres burbujas; se desactiva con movimiento reducido." },
+      { "name": "contact-hover", "value": ".18s ease", "purpose": "Desplaza sutilmente el enlace de WhatsApp en hover." },
+      { "name": "scroll-cue", "value": "1.7s ease-in-out infinite", "purpose": "Oscila la pista Desliza para ver hasta el primer desplazamiento; se desactiva con movimiento reducido." }
+    ],
+    "breakpoints": [{ "name": "wide", "value": "760px" }]
+  },
+  "components": [
+    {
+      "name": "Hero directo",
+      "kind": "custom",
+      "description": "Hero breve con estado alineado a la derecha, una línea explicativa y pista animada prominente que desaparece tras el primer scroll.",
+      "html": "<header class=\"portada\"><nav><span class=\"estado\"><i></i> sábado completado</span></nav><div class=\"hero\"><div class=\"hero-copia\"><h1>Natalia, en esto invertí mi sábado.</h1><p>Un servidor. Varios servicios. Todo en un sábado.</p></div><a class=\"indicador-scroll\" href=\"#evidencias\"><span>Desliza para ver</span><i></i></a></div></header>",
+      "css": ".hero{min-height:72svh;padding:72px 0 110px}.indicador-scroll{position:absolute;left:50%;bottom:24px;animation:indicar-vertical 1.7s ease-in-out infinite}.indicador-scroll.oculto{opacity:0;transform:translate(-50%,10px);pointer-events:none;animation:none}@media(prefers-reduced-motion:reduce){.indicador-scroll{animation:none}}"
+    },
+    {
+      "name": "Introducción y evidencias",
+      "kind": "card",
+      "description": "Dos frases de contexto seguidas por capturas responsive enlazadas en toda su superficie.",
+      "html": "<section class=\"evidencias\"><div class=\"evidencia-intro\"><h2>Primero monté Proxmox. Después, Coolify.</h2><p>Luego dejé funcionando DDNS, enlaces cortos, citas y un chatbot.</p></div><figure class=\"captura\"><a class=\"captura-enlace\" href=\"/proxmox-working-full.webp\"><picture>...</picture></a><figcaption>...</figcaption></figure></section>",
+      "css": ".captura{aspect-ratio:2184/2086;position:relative;overflow:hidden;background:#dfd8cc;box-shadow:0 22px 50px rgba(23,22,17,.14)}.captura-enlace{position:absolute;inset:0;z-index:1}.captura figcaption{position:relative;z-index:2;pointer-events:none}@media(min-width:760px){.captura{aspect-ratio:3456/2088}.captura-dos{margin-top:72px}}"
+    },
+    {
+      "name": "Banda técnica",
+      "kind": "custom",
+      "description": "Franja horizontal compacta y desplazable con etiqueta y seis tecnologías o servicios confirmados.",
+      "html": "<section class=\"evidencias\">...<div class=\"banda-tecnica\"><strong>Quedaron funcionando:</strong><span>Proxmox</span><span>Coolify</span><span>DDNS</span><span>Enlaces cortos</span><span>Citas</span><span>Chatbot</span></div></section>",
+      "css": ".evidencias>.banda-tecnica{display:flex;gap:10px;overflow-x:auto;margin:52px -20px -64px;padding:18px 20px;background:var(--tinta);color:var(--papel)}.banda-tecnica strong{flex:none;color:var(--amarillo)}@media(min-width:760px){.evidencias>.banda-tecnica{grid-column:1/-1;margin:30px -4vw -88px}}"
+    },
+    {
+      "name": "Prueba de dominios propios",
+      "kind": "custom",
+      "description": "Prueba verde con las dos URLs exactas y flecha hacia la barra del navegador.",
+      "html": "<section class=\"prueba-dominio\"><strong>natalia.apps.nietoga.com</strong><div class=\"ruta-enlace\"><strong>slash.apps.nietoga.com/natalia</strong></div><div class=\"ruta-enlace\"><strong>natalia.apps.nietoga.com</strong></div></section>",
+      "css": ".prueba-dominio{padding:76px 20px;background:var(--verde);color:var(--papel)}.flecha-dominio{animation:senalar 1.5s ease-in-out infinite}@media(prefers-reduced-motion:reduce){.flecha-dominio{animation:none}}"
+    },
+    {
+      "name": "Posdata del pez",
+      "kind": "card",
+      "description": "Posdata oscura y breve con atribución a Kevin, foto real 3:4 y estados visibles.",
+      "html": "<aside class=\"postdata\"><div><h2>P. D. Nuevo pez limpiador.</h2><p>Lo trajo Kevin.</p></div><figure class=\"foto-pez\"><img src=\"/pez-kevin.webp\" alt=\"El pez limpiador nuevo que trajo Kevin\"><figcaption>...</figcaption></figure></aside>",
+      "css": ".postdata{padding:72px 20px;background:var(--tinta);color:var(--papel)}.foto-pez{aspect-ratio:3/4;max-width:560px;background:#2a2a25;box-shadow:0 22px 50px rgba(0,0,0,.22)}"
+    },
+    {
+      "name": "Contacto por WhatsApp",
+      "kind": "button",
+      "description": "Conclusión y llamada final amarilla con destino y número visibles exactos.",
+      "html": "<section class=\"contacto\"><div class=\"contacto-contenido\"><h2><span>Eso fue mi sábado.</span> ¿Alguna duda?</h2><a href=\"https://wa.me/573127509912\" target=\"_blank\" rel=\"noreferrer\">Escríbeme por WhatsApp <span>312 750 9912 ↗</span></a></div><footer><span>Hecho para Natalia</span><a href=\"#inicio\">Volver arriba ↑</a></footer></section>",
+      "css": ".contacto{display:flex;flex-direction:column;padding:64px 20px;background:var(--amarillo)}.contacto-contenido{width:100%;margin-block:auto}.contacto-contenido>a{display:flex;flex-direction:column;padding:18px 0;border-block:1px solid rgba(23,22,17,.45);text-decoration:none}.contacto>footer{width:100%;margin-top:auto;padding-inline:0;padding-bottom:0}"
+    }
+  ],
+  "narrative": {
+    "northStar": "El sábado puesto en línea",
+    "overview": "Una carta mobile-first compacta con cinco capítulos de pantalla completa y snapping vertical obligatorio: hero breve con pista de primer scroll, contexto mínimo de Proxmox y Coolify, capturas reales, banda técnica, dominios propios, pez y conclusión accionable por WhatsApp.",
+    "keyCharacteristics": [
+      "Ritmo vertical compacto e imágenes primero.",
+      "Cinco capítulos directos con snapping obligatorio; banda técnica y footer están anidados en sus capítulos, sin contenido suelto entre puntos.",
+      "Introducción de evidencia limitada a dos frases.",
+      "Capturas responsive ampliables desde toda su superficie.",
+      "Banda técnica etiquetada en una sola línea horizontal.",
+      "Dos URLs literales como prueba verde de propiedad.",
+      "Sin logo ni capítulo de cierre: la conclusión vive dentro del CTA amarillo de WhatsApp."
+    ],
+    "rules": [
+      { "name": "The Evidence-First Rule", "body": "Después del hero, usar solo la introducción breve de Proxmox y Coolify antes de las dos capturas; no restaurar hitos ni cronologías.", "section": "layout" },
+      { "name": "The Mandatory Chapter Navigation Rule", "body": "Aplicar scroll-snap-type y mandatory en html y body. Los únicos cinco hijos directos de main —.portada, .evidencias, .prueba-dominio, .postdata y .contacto— tienen min-height 100svh, scroll-snap-align start y scroll-snap-stop always. Anidar .banda-tecnica al final de .evidencias y footer al final de .contacto; no dejar contenido superior entre snaps. Desactivar snapping y smooth scroll con movimiento reducido.", "section": "layout" },
+      { "name": "The Screenshot Truth Rule", "body": "Servir WebP vertical de 700px en móvil y panorámico de 1400px desde 760px; mostrar estados y permitir ampliar tocando incluso el caption.", "section": "components" },
+      { "name": "The Compact Technology Rule", "body": "Mantener Quedaron funcionando: y los seis elementos en una sola banda horizontal, nunca en un capítulo narrativo amarillo.", "section": "components" },
+      { "name": "The Owned URL Proof Rule", "body": "Mostrar literalmente slash.apps.nietoga.com/natalia y natalia.apps.nietoga.com con la flecha hacia la barra.", "section": "components" },
+      { "name": "The WhatsApp Truth Rule", "body": "El CTA final integra Eso fue mi sábado. encima de ¿Alguna duda?, enlaza exactamente a https://wa.me/573127509912 y muestra 312 750 9912.", "section": "components" },
+      { "name": "The Fish Postscript Truth Rule", "body": "Decir P. D. Nuevo pez limpiador. y Lo trajo Kevin.; mostrar /pez-kevin.webp en reserva 3:4 con estados visibles.", "section": "components" }
+    ],
+    "dos": [
+      "Do mantener el recorrido compacto, mobile-first y orientado a las imágenes.",
+      "Do mantener literales las URLs, el número y el destino de WhatsApp.",
+      "Do mantener estados de carga/error, recursos responsive y fallbacks de movimiento.",
+      "Do reservar DM Mono para evidencia técnica."
+    ],
+    "donts": [
+      "Don't reintroducir los cuatro hitos, texto entre capturas, servicios amarillos ni marquesina.",
+      "Don't convertir la carta en dashboard, portafolio o explicación extensa.",
+      "Don't inventar capturas, métricas, horarios o servicios.",
+      "Don't reemplazar recursos reales ni recargar la posdata.",
+      "Don't reintroducir logo, firma, corazón, capítulo de cierre ni IntersectionObserver."
+    ]
+  }
+}
