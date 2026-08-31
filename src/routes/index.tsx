@@ -88,7 +88,7 @@ function Captura({ movil, completa, titulo, clase }: { movil: string; completa: 
     <figure className={`captura ${clase} ${lista ? 'con-imagen' : ''}`} data-revelar>
       <a className="captura-enlace" href={completa} target="_blank" rel="noreferrer" aria-label={`Ampliar captura: ${titulo}`}>
         <picture>
-          <img src={movil} alt="" loading="lazy" decoding="async" onLoad={() => setLista(true)} onError={() => setError(true)} />
+          <img src={movil} alt="" loading="eager" decoding="async" onLoad={() => setLista(true)} onError={() => setError(true)} />
         </picture>
       </a>
       <figcaption><strong>{titulo}</strong><span>{lista ? 'toca para ampliar ↗' : error ? 'No se pudo cargar' : 'cargando…'}</span></figcaption>
