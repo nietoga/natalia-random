@@ -91,7 +91,7 @@ function Captura({ movil, completa, titulo, clase }: { movil: string; completa: 
           <img src={movil} alt="" loading="eager" decoding="async" onLoad={() => setLista(true)} onError={() => setError(true)} />
         </picture>
       </a>
-      <figcaption><strong>{titulo}</strong><span>{lista ? 'toca para ampliar ↗' : error ? 'No se pudo cargar' : 'cargando…'}</span></figcaption>
+      <figcaption><strong>{titulo}</strong><span>{error ? 'No se pudo cargar' : 'toca para ampliar ↗'}</span></figcaption>
     </figure>
   )
 }
