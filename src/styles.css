@@ -104,7 +104,7 @@ body{scroll-snap-type:y mandatory}.portada,.evidencias,.prueba-dominio,.postdata
 
 /* En pantallas grandes, conserva la experiencia de carta móvil. */
 @media(min-width:760px){
-  main{width:min(100%,430px);margin-inline:auto;overflow:hidden;box-shadow:0 0 48px rgba(23,22,17,.1)}
+  main{width:min(100%,430px);margin-inline:auto;overflow:clip;box-shadow:0 0 48px rgba(23,22,17,.1)}
   .portada{padding-inline:20px}
   .hero{min-height:72svh;padding:72px 0 110px}
   .hero-copia{max-width:none}
