@@ -26,8 +26,8 @@ function CartaParaNatalia() {
           <h2>Primero monté Proxmox. Después, Coolify.</h2>
           <p>Proxmox aloja las máquinas virtuales; Coolify despliega y mantiene los servicios. Luego dejé funcionando DDNS, enlaces cortos, citas y un chatbot.</p>
         </div>
-        <Captura movil="/proxmox-working-slim.webp" escritorio="/proxmox-working.webp" completa="/proxmox-working-full.webp" titulo="Proxmox funcionando" clase="captura-uno" />
-        <Captura movil="/coolify-working-slim.webp" escritorio="/coolify-working.webp" completa="/coolify-working-full.webp" titulo="Servicios desplegados en Coolify" clase="captura-dos" />
+        <Captura movil="/proxmox-working-slim.webp" completa="/proxmox-working-full.webp" titulo="Proxmox funcionando" clase="captura-uno" />
+        <Captura movil="/coolify-working-slim.webp" completa="/coolify-working-full.webp" titulo="Servicios desplegados en Coolify" clase="captura-dos" />
         <Seguir href="#prueba-dominio" />
       </section>
 
@@ -81,14 +81,13 @@ function Seguir({ href }: { href: string }) {
   return <a className="seguir" href={href}><span>Seguir</span><i aria-hidden="true">↓</i></a>
 }
 
-function Captura({ movil, escritorio, completa, titulo, clase }: { movil: string; escritorio: string; completa: string; titulo: string; clase: string }) {
+function Captura({ movil, completa, titulo, clase }: { movil: string; completa: string; titulo: string; clase: string }) {
   const [lista, setLista] = useState(false)
   const [error, setError] = useState(false)
   return (
     <figure className={`captura ${clase} ${lista ? 'con-imagen' : ''}`} data-revelar>
       <a className="captura-enlace" href={completa} target="_blank" rel="noreferrer" aria-label={`Ampliar captura: ${titulo}`}>
         <picture>
-          <source media="(min-width: 760px)" srcSet={escritorio} />
           <img src={movil} alt="" loading="lazy" decoding="async" onLoad={() => setLista(true)} onError={() => setError(true)} />
         </picture>
       </a>

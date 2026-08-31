@@ -101,3 +101,36 @@ footer{display:flex;flex-direction:column;gap:14px;padding:24px 20px max(24px,en
 body{scroll-snap-type:y mandatory}.portada,.evidencias,.prueba-dominio,.postdata,.contacto{min-height:100svh}.portada{min-height:100svh}.hero{min-height:calc(100svh - 64px)}.contacto{display:flex;flex-direction:column;justify-content:center}
 @media(min-width:760px){.contacto{display:grid}.hero{min-height:calc(100svh - 64px)}}
 @media(prefers-reduced-motion:reduce){html,body{scroll-behavior:auto;scroll-snap-type:none}}
+
+/* En pantallas grandes, conserva la experiencia de carta móvil. */
+@media(min-width:760px){
+  main{width:min(100%,430px);margin-inline:auto;overflow:hidden;box-shadow:0 0 48px rgba(23,22,17,.1)}
+  .portada{padding-inline:20px}
+  .hero{min-height:72svh;padding:72px 0 110px}
+  .hero-copia{max-width:none}
+  .hero p{font-size:1.05rem}
+  .sistema{width:240px;right:-105px;top:auto;bottom:-48px;opacity:.32;transform:none}
+  .sabado-visual{position:relative;right:auto;top:auto;width:min(82vw,340px);margin:26px auto 0;transform:rotate(2deg)}
+  .sabado-visual figcaption{font-size:.62rem}
+  .portada .hero{justify-content:flex-start;padding:24px 0 0}
+  .portada .seguir{position:relative;left:auto;bottom:auto;margin:18px auto 0;transform:none}
+  .portada .seguir:hover{transform:translateY(-2px)}
+  .evidencias{display:block;padding:64px 20px}
+  .evidencia-intro{display:block;margin-bottom:46px}
+  .evidencia-intro p{font-size:1rem}
+  .captura{aspect-ratio:2184/2086;margin:0 0 56px}
+  .captura-dos{margin-top:0}
+  .evidencias>.banda-tecnica{margin:52px -20px -64px}
+  .prueba-dominio{display:block;padding:76px 20px}
+  .dominio-actual{margin-bottom:90px}
+  .prueba-copia h2{margin-bottom:46px}
+  .flecha-dominio{font-size:4.8rem;top:-10px}
+  .postdata{display:block;padding:72px 20px}
+  .postdata p{font-size:1.1rem}
+  .foto-pez{width:auto;max-width:560px;justify-self:auto}
+  .contacto{display:flex;min-height:100svh;padding:64px 20px;gap:0}
+  .contacto-contenido{display:block}
+  .contacto-contenido h2{margin-bottom:24px}
+  .contacto-contenido>a{font-size:1rem}
+  .contacto>footer{flex-direction:column;padding-inline:0}
+}
