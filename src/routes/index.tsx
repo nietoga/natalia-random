@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export const Route = createFileRoute('/')({ component: CartaParaNatalia })
 
@@ -84,14 +84,31 @@ function Seguir({ href }: { href: string }) {
 function Captura({ movil, completa, titulo, clase }: { movil: string; completa: string; titulo: string; clase: string }) {
   const [lista, setLista] = useState(false)
   const [error, setError] = useState(false)
+  const [ampliada, setAmpliada] = useState(false)
+
+  useEffect(() => {
+    if (!ampliada) return
+    const cerrarConEscape = (evento: KeyboardEvent) => {
+      if (evento.key === 'Escape') setAmpliada(false)
+    }
+    window.addEventListener('keydown', cerrarConEscape)
+    return () => window.removeEventListener('keydown', cerrarConEscape)
+  }, [ampliada])
+
   return (
     <figure className={`captura ${clase} ${lista ? 'con-imagen' : ''}`} data-revelar>
-      <a className="captura-enlace" href={completa} target="_blank" rel="noreferrer" aria-label={`Ampliar captura: ${titulo}`}>
+      <button className="captura-enlace" type="button" onClick={() => setAmpliada(true)} aria-label={`Ampliar captura: ${titulo}`}>
         <picture>
           <img src={movil} alt="" loading="eager" decoding="async" onLoad={() => setLista(true)} onError={() => setError(true)} />
         </picture>
-      </a>
+      </button>
       <figcaption><strong>{titulo}</strong><span>{error ? 'No se pudo cargar' : 'toca para ampliar ↗'}</span></figcaption>
+      {ampliada && (
+        <div className="captura-ampliada" role="dialog" aria-modal="true" aria-label={titulo} onClick={() => setAmpliada(false)}>
+          <button className="captura-cerrar" type="button" onClick={() => setAmpliada(false)} aria-label="Cerrar ampliación">×</button>
+          <img src={completa} alt={titulo} onClick={(evento) => evento.stopPropagation()} />
+        </div>
+      )}
     </figure>
   )
 }

@@ -135,3 +135,7 @@ body{scroll-snap-type:y mandatory}.portada,.evidencias,.prueba-dominio,.postdata
   .contacto-contenido>a{font-size:1rem}
   .contacto>footer{flex-direction:column;padding-inline:0}
 }
+
+.captura-ampliada{position:fixed;z-index:20;inset:0;display:grid;place-items:center;padding:24px;background:rgba(23,22,17,.9);cursor:zoom-out}
+.captura-ampliada img{width:auto;max-width:min(100%,1400px);height:auto;max-height:calc(100svh - 48px);object-fit:contain;opacity:1!important;box-shadow:0 22px 50px rgba(0,0,0,.35);cursor:default}
+.captura-cerrar{position:fixed;z-index:21;top:18px;right:18px;width:44px;height:44px;border:1px solid var(--papel);background:var(--tinta);color:var(--papel);font:400 2rem/1 'DM Mono',monospace;cursor:pointer}
