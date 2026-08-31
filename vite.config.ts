@@ -5,4 +5,7 @@ import viteReact from '@vitejs/plugin-react'
 export default defineConfig({
   resolve: { tsconfigPaths: true },
   plugins: [tanstackStart(), viteReact()],
+  preview: {
+    allowedHosts: ['natalia.apps.nietoga.com'],
+  },
 })
